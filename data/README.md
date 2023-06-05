@@ -5,7 +5,7 @@ Most tables created purely for this analysis are persisted on Google Docs. These
 * small_file_billinginfo_reads: Read requests for small files from the dCache billinginfo table including simulated host volume from above, used alongside Enstore's tape_mounts table to determine mount wait times for small file reads.
 * storageinfo_sfa_stores: Write requests for small file writes from the dCache storageinfo table, including added file_family column from Enstore volume table, used along with filtered_tape_mounts to determine mount wait times for small file writes.
 
-Other tables, persisted in the production Enstore DBs are the following:
+Other necessary tables, persisted in the production Enstore and dCache DBs are the following:
 * volume: Enstore table used to determine valid simulated host volumes of requests above according to file family.
 * file: Enstore tsed to determine file family of requested files (reads and writes), whether or not a file is an SFA file, and file creation time (based on BFID timestamp).
 * tape_mounts: Enstore table containing start and end time of all tape mounts, including number of files read and written for each mount.
