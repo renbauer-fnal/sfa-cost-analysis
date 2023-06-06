@@ -66,10 +66,10 @@ object EnstoreSFACalculateMountWaitsBillinginfoPreMounts {
           try {
     partition.foreach { row: org.apache.spark.sql.Row =>
       if (1 == 1) {
-        if (!row.isNullAt(1) && !row.isNullAt(4) && !row.isNullAt(5)) {
+        if (!row.isNullAt(1) && !row.isNullAt(4) && !row.isNullAt(14)) {
           val datestamp = row.getTimestamp(1)
           val sfbr_id = row.getInt(4)
-          val volume = row.getString(5)
+          val volume = row.getString(14) // migrated volume
   
           val mount_query = s"select finish, tapemount_id from tape_mounts"
           val datestamp_filter = s"start > (TIMESTAMP '$datestamp' - INTERVAL '100 days') and start < (TIMESTAMP '$datestamp')"
